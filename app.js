@@ -70,3 +70,5 @@ restartButton.addEventListener('click', () => {
     document.getElementById('quiz').style.display = 'block';
     loadQuestion();
 });
+
+loadQuestion();
