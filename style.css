@@ -31,3 +31,7 @@ h1 {
     list-style-type: none;
     padding: 0;
 }
+
+#options li {
+    margin-bottom: 10px;
+}
