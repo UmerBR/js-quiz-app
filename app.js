@@ -47,3 +47,18 @@ function showResult() {
     resultElement.style.display = 'block';
     scoreElement.innerText = `You answered ${score} out of ${quizData.length} questions correctly!`;
 }
+
+nextButton.addEventListener('click', () => {
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+    if (selectedOption) {
+        if (selectedOption.value === quizData[currentQuestion].answer) {
+            score++;
+        }
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+});
