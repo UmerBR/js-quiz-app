@@ -62,3 +62,11 @@ nextButton.addEventListener('click', () => {
         }
     }
 });
+
+restartButton.addEventListener('click', () => {
+    currentQuestion = 0;
+    score = 0;
+    resultElement.style.display = 'none';
+    document.getElementById('quiz').style.display = 'block';
+    loadQuestion();
+});
