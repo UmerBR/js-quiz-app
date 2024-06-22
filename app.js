@@ -42,3 +42,8 @@ function loadQuestion() {
         optionsElement.appendChild(li);
     });
 }
+function showResult() {
+    document.getElementById('quiz').style.display = 'none';
+    resultElement.style.display = 'block';
+    scoreElement.innerText = `You answered ${score} out of ${quizData.length} questions correctly!`;
+}
