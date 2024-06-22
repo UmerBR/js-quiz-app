@@ -25,3 +25,20 @@ const nextButton = document.getElementById('nextBtn');
 const resultElement = document.getElementById('result');
 const scoreElement = document.getElementById('score');
 const restartButton = document.getElementById('restartBtn');
+
+
+function loadQuestion() {
+    const currentQuizData = quizData[currentQuestion];
+    questionElement.innerText = currentQuizData.question;
+    optionsElement.innerHTML = '';
+    currentQuizData.options.forEach(option => {
+        const li = document.createElement('li');
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'option';
+        radio.value = option;
+        li.appendChild(radio);
+        li.appendChild(document.createTextNode(option));
+        optionsElement.appendChild(li);
+    });
+}
