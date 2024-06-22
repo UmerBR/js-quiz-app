@@ -15,3 +15,6 @@ const quizData = [
         answer: "Hypertext Markup Language"
     }
 ];
+
+let currentQuestion = 0;
+let score = 0;
