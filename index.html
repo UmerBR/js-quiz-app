@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz app</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="quiz-container">
-        <h1>Simple Computer Quiz for Beginners</h1>
+        <h1>Quiz App</h1>
         <div id="quiz">
             <div id="question"></div>
+            <div id="timer">Time left: <span id="time">15</span> seconds</div>
             <form id="optionsForm">
                 <ul id="options"></ul>
             </form>
             <button id="nextBtn">Next Question</button>
         </div>
-       
+        <div id="result" style="display: none;">
+            <h2>Quiz Result</h2>
+            <p id="score"></p>
+            <button id="restartBtn">Restart Quiz</button>
+        </div>
+        
     </div>
 
     <script src="app.js"></script>
