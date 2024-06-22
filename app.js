@@ -18,3 +18,10 @@ const quizData = [
 
 let currentQuestion = 0;
 let score = 0;
+
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+const nextButton = document.getElementById('nextBtn');
+const resultElement = document.getElementById('result');
+const scoreElement = document.getElementById('score');
+const restartButton = document.getElementById('restartBtn');
