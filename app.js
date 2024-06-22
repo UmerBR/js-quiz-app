@@ -18,16 +18,34 @@ const quizData = [
 
 let currentQuestion = 0;
 let score = 0;
-
+let timeLeft = 15; // 15 seconds for each question
+let timer;
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
 const nextButton = document.getElementById('nextBtn');
 const resultElement = document.getElementById('result');
 const scoreElement = document.getElementById('score');
 const restartButton = document.getElementById('restartBtn');
-
+const timerElement = document.getElementById('time');
 
 function loadQuestion() {
+    clearInterval(timer); // Clear any existing timer
+    timeLeft = 15;
+    timerElement.innerText = timeLeft;
+    timer = setInterval(() => {
+        timeLeft--;
+        timerElement.innerText = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+    }, 1000);
+
     const currentQuizData = quizData[currentQuestion];
     questionElement.innerText = currentQuizData.question;
     optionsElement.innerHTML = '';
@@ -42,7 +60,9 @@ function loadQuestion() {
         optionsElement.appendChild(li);
     });
 }
+
 function showResult() {
+    clearInterval(timer);
     document.getElementById('quiz').style.display = 'none';
     resultElement.style.display = 'block';
     scoreElement.innerText = `You answered ${score} out of ${quizData.length} questions correctly!`;
@@ -54,6 +74,7 @@ nextButton.addEventListener('click', () => {
         if (selectedOption.value === quizData[currentQuestion].answer) {
             score++;
         }
+        clearInterval(timer); // Stop the timer when moving to the next question
         currentQuestion++;
         if (currentQuestion < quizData.length) {
             loadQuestion();
